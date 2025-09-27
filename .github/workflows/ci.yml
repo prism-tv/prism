@@ -20,7 +20,13 @@ jobs:
         run: corepack enable
       - name: Install dependencies
         run: pnpm install
+      - name: Install Playwright browsers
+        run: pnpm -C examples/hello-rail exec playwright install --with-deps
+      - name: Lint
+        run: pnpm lint
       - name: Build
         run: pnpm build
       - name: Test
         run: pnpm test
+      - name: E2E
+        run: pnpm -C examples/hello-rail test

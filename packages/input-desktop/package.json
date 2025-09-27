@@ -1,5 +1,5 @@
 {
-  "name": "@prism-tv/core",
+  "name": "@prism-tv/input-desktop",
   "version": "0.0.0",
   "private": false,
   "main": "dist/index.js",
