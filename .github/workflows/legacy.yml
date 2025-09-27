@@ -1,28 +1,24 @@
 name: Legacy 2017 TVs
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 jobs:
   legacy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: pnpm
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9.7.1
-      - name: Install dependencies
-        run: pnpm install
-      - name: Verify legacy browsers
-        run: pnpm run legacy:verify
-      - name: Build core package
-        run: pnpm -C packages/core run build
+          version: 9
+
+      - run: pnpm --version
+      - run: pnpm install
+
+      - run: pnpm run legacy:verify
+      - run: pnpm -C packages/core run build
