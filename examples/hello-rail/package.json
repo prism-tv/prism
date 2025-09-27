@@ -3,8 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build"
+    "build": "echo \"hello-rail build (placeholder)\""
   },
   "dependencies": {
     "@prism-tv/core": "workspace:*"
