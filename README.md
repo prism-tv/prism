@@ -1,5 +1,7 @@
 # Prism TV
 
+![CI](https://github.com/prism-tv/prism/actions/workflows/ci.yml/badge.svg) ![Legacy 2017 TVs](https://github.com/prism-tv/prism/actions/workflows/legacy.yml/badge.svg)
+
 Prism TV is a modern open television platform designed to explore ambient UI patterns for streaming hardware. This monorepo hosts the core TypeScript packages, example experiences, and RFCs that shape the project direction.
 
 ## Quickstart
@@ -15,7 +17,7 @@ Use `pnpm dev` when interactive previews are available. The workspace relies on 
 ## Project Structure
 
 - `packages/` – publishable libraries such as `@prism-tv/core`
-- `examples/` – runnable demos (`hello-rail` placeholder today)
+- `examples/` – runnable demos (Solid-powered `hello-rail` today)
 - `rfcs/` – project design documents and proposals
 
 Each package ships TypeScript sources compiled with the shared `tsconfig.base.json`. Build artifacts live under `dist/`.

@@ -3,9 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "build": "echo \"hello-rail build (placeholder)\""
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@prism-tv/core": "workspace:*"
+    "@prism-tv/core": "workspace:*",
+    "solid-js": "^1.9.3"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vite-plugin-solid": "^2.8.0"
   }
 }
