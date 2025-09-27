@@ -1,29 +1,34 @@
 name: CI
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: pnpm
-
       - name: Setup pnpm
         uses: pnpm/action-setup@v3
         with:
-          version: 9 # match your local pnpm major/minor
-
-      - run: pnpm --version
-      - run: pnpm install
-
-      # If you run Playwright tests:
-      - run: pnpm -C examples/hello-rail exec playwright install --with-deps
-
-      - run: pnpm lint
-      - run: pnpm build
-      - run: pnpm test
-      - run: pnpm -C examples/hello-rail test
+          version: 9.7.1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install Playwright browsers
+        run: pnpm -C examples/hello-rail exec playwright install --with-deps
+      - name: Lint
+        run: pnpm lint
+      - name: Build
+        run: pnpm build
+      - name: Test
+        run: pnpm test
+      - name: E2E
+        run: pnpm -C examples/hello-rail test
